@@ -44,7 +44,7 @@ export function AdvantagesSection() {
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {advantages.map((advantage, index) => (
                        <Card key={advantage.title} className={cn(
-                           "bg-card/50 p-6 flex flex-col items-center text-center transition-all duration-700",
+                           "bg-card/60 dark:bg-card/50 backdrop-blur-sm p-6 flex flex-col items-center text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10 border border-black/5 dark:border-white/10",
                            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                         )} style={{transitionDelay: `${index * 150}ms`}}>
                           {advantage.icon}

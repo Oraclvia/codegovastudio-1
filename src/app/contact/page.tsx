@@ -47,7 +47,7 @@ export default function ContactPage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                <div className="bg-card/50 border border-white/10 p-8 sm:p-12 rounded-lg shadow-lg">
+                <div className="bg-card/60 dark:bg-card/50 backdrop-blur-sm border border-black/10 dark:border-white/10 p-8 sm:p-12 rounded-2xl shadow-lg">
                     <h2 className="font-headline text-3xl font-bold mb-8">Get in Touch</h2>
                     <ContactForm />
                 </div>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                             </div>
                         </div>
                     ))}
-                     <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mt-8 border border-white/10">
+                     <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mt-8 border border-black/10 dark:border-white/10">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.63653132021!2d-122.08424968469176!3d37.422065979825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5e0b6d3a51f%3A0x43d2c0b0b8c6e8f3!2sGoogleplex!5e0!3m2!1sen!2sus!4v1622557813291!5m2!1sen!2sus"
                             width="100%"
@@ -77,7 +77,7 @@ export default function ContactPage() {
                             allowFullScreen={false}
                             loading="lazy"
                             title="Office Location"
-                            className="grayscale contrast-125"
+                            className="dark:grayscale dark:contrast-125"
                         ></iframe>
                     </div>
                 </div>

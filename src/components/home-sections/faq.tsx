@@ -28,7 +28,7 @@ export function FaqSection() {
     const { ref, isInView } = useInView({ triggerOnce: true });
 
     return (
-        <section ref={ref} id="faq" className="w-full py-20 md:py-28 lg:py-32 bg-card/50">
+        <section ref={ref} id="faq" className="w-full py-20 md:py-28 lg:py-32 bg-card/30 dark:bg-card/50">
             <div className={cn(
                 "container px-4 md:px-6 transition-all duration-1000",
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -43,7 +43,7 @@ export function FaqSection() {
                 <div className="max-w-3xl mx-auto">
                     <Accordion type="single" collapsible className="w-full">
                         {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index + 1}`} className="border-white/10">
+                            <AccordionItem key={index} value={`item-${index + 1}`} className="border-black/10 dark:border-white/10">
                                 <AccordionTrigger className="py-6 text-lg text-left hover:text-primary">{faq.question}</AccordionTrigger>
                                 <AccordionContent className="pb-6 text-base text-muted-foreground">
                                     {faq.answer}

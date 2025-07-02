@@ -8,6 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "./icons";
+import { ThemeToggleButton } from "./theme-toggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -49,50 +50,54 @@ export function Header() {
   return (
     <header className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "border-b border-white/10 bg-background/80 backdrop-blur-lg" : "bg-transparent"
+        isScrolled ? "border-b border-black/10 dark:border-white/10 bg-background/80 backdrop-blur-lg" : "bg-transparent"
     )}>
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Logo className="h-7 w-auto text-primary" />
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <NavLink key={link.href} {...link} className="text-sm font-medium" />
-          ))}
-        </nav>
-        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" className="md:hidden p-2">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent 
-            side="right" 
-            className="bg-background/95 backdrop-blur-lg w-full h-full p-0 flex flex-col"
-            closeButtonClass="hidden"
-          >
-            <div className="flex items-center justify-between p-4 border-b border-white/10">
-                <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Logo className="h-7 w-auto text-primary" />
-                </Link>
-                <Button variant="ghost" onClick={() => setIsMobileMenuOpen(false)} className="p-2">
-                    <X className="h-6 w-6" />
-                    <span className="sr-only">Close Menu</span>
-                </Button>
-            </div>
-            <div className="flex flex-col items-center justify-center flex-1 gap-8 p-8">
-              {navLinks.map((link, index) => (
-                <NavLink 
-                    key={link.href} 
-                    {...link} 
-                    className="text-3xl font-bold opacity-0 animate-fade-in-up" 
-                    style={{ animationDelay: `${index * 100 + 200}ms`}}
-                />
+        
+        <div className="flex items-center gap-2">
+            <nav className="hidden items-center gap-8 md:flex">
+              {navLinks.map((link) => (
+                <NavLink key={link.href} {...link} className="text-sm font-medium" />
               ))}
-            </div>
-          </SheetContent>
-        </Sheet>
+            </nav>
+            <ThemeToggleButton />
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" className="md:hidden p-2">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Toggle Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent 
+                side="right" 
+                className="bg-background/95 backdrop-blur-lg w-full h-full p-0 flex flex-col"
+                closeButtonClass="hidden"
+              >
+                <div className="flex items-center justify-between p-4 border-b border-black/10 dark:border-white/10">
+                    <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Logo className="h-7 w-auto text-primary" />
+                    </Link>
+                    <Button variant="ghost" onClick={() => setIsMobileMenuOpen(false)} className="p-2">
+                        <X className="h-6 w-6" />
+                        <span className="sr-only">Close Menu</span>
+                    </Button>
+                </div>
+                <div className="flex flex-col items-center justify-center flex-1 gap-8 p-8">
+                  {navLinks.map((link, index) => (
+                    <NavLink 
+                        key={link.href} 
+                        {...link} 
+                        className="text-3xl font-bold opacity-0 animate-fade-in-up" 
+                        style={{ animationDelay: `${index * 100 + 200}ms`}}
+                    />
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
+        </div>
       </div>
     </header>
   );

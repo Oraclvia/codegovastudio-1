@@ -15,7 +15,7 @@ export function CtaSection() {
                 "container px-4 md:px-6 transition-all duration-1000",
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}>
-                <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-card/50 border border-primary/20 text-center">
+                <div className="relative rounded-2xl p-8 md:p-16 overflow-hidden bg-card/60 dark:bg-card/50 backdrop-blur-sm border border-primary/10 dark:border-primary/20 text-center">
                     <div className="absolute inset-0 -z-10 animate-aurora bg-[radial-gradient(ellipse_at_50%_50%,hsl(var(--primary)_/_0.25)_0%,transparent_50%)]"></div>
                     <h2 className="font-headline text-4xl font-bold tracking-tighter md:text-5xl/tight">
                         Ready to build something amazing?

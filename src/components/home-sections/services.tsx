@@ -27,7 +27,7 @@ export function ServicesSection() {
     const { ref, isInView } = useInView({ triggerOnce: true });
 
     return (
-        <section ref={ref} className="w-full py-20 md:py-28 lg:py-32 bg-card/50">
+        <section ref={ref} className="w-full py-20 md:py-28 lg:py-32 bg-card/30 dark:bg-card/50">
             <div className={cn(
                 "container px-4 md:px-6 transition-all duration-1000",
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -41,7 +41,7 @@ export function ServicesSection() {
                 <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {services.map((service, index) => (
                         <Card key={service.title} className={cn(
-                            "group relative overflow-hidden border-white/10 bg-gradient-to-b from-card to-background p-6 text-center transition-all duration-300 hover:border-primary/50 hover:-translate-y-2",
+                            "group relative overflow-hidden border-black/10 dark:border-white/10 bg-card/60 dark:bg-card/50 backdrop-blur-sm p-6 text-center transition-all duration-300 hover:border-primary/50 hover:-translate-y-2",
                             "transition-all duration-700",
                             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                         )} style={{transitionDelay: `${index * 150}ms`}}>

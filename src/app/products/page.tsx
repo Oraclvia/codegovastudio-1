@@ -31,7 +31,7 @@ export default function ProductsPage() {
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {products.map((product) => (
-                    <Card key={product.title} className="group flex flex-col overflow-hidden bg-card/50 transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 border-white/10">
+                    <Card key={product.title} className="group flex flex-col overflow-hidden bg-card/60 dark:bg-card/50 backdrop-blur-sm border border-black/10 dark:border-white/10 transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 hover:border-primary/20">
                         <div className="overflow-hidden">
                              <Image
                                 src={product.image}

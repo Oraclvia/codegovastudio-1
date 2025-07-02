@@ -12,7 +12,7 @@ export function FeaturedProductSection() {
     const { ref, isInView } = useInView({ triggerOnce: true });
 
     return (
-        <section ref={ref} id="featured-product" className="w-full py-20 md:py-28 lg:py-32 bg-card/50 overflow-hidden">
+        <section ref={ref} id="featured-product" className="w-full py-20 md:py-28 lg:py-32 bg-card/30 dark:bg-card/50 overflow-hidden">
             <div className={cn(
                 "container px-4 md:px-6 grid md:grid-cols-2 gap-12 items-center transition-all duration-1000",
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"

@@ -35,7 +35,7 @@ export default function ProductDetailPage({ params }: Props) {
     return (
         <div className="container mx-auto px-4 py-16 sm:py-24 lg:py-32">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                <div className="relative group p-4 bg-card/50 rounded-xl border border-white/10">
+                <div className="relative group p-4 bg-card/60 dark:bg-card/50 backdrop-blur-sm rounded-xl border border-black/10 dark:border-white/10">
                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary to-accent opacity-10 blur-2xl transition-opacity duration-500 group-hover:opacity-20"></div>
                     <Image
                         src={product.image}
@@ -73,7 +73,7 @@ export default function ProductDetailPage({ params }: Props) {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {product.features.map(feature => (
-                        <Card key={feature.title} className="bg-card/50 border-white/10 p-6">
+                        <Card key={feature.title} className="bg-card/60 dark:bg-card/50 backdrop-blur-sm border border-black/10 dark:border-white/10 p-6">
                             <CardHeader className="p-0 flex flex-row items-center gap-4">
                                 {feature.icon && <feature.icon className="size-8 text-primary" />}
                                 <CardTitle className="font-headline text-xl m-0">{feature.title}</CardTitle>
