@@ -34,7 +34,7 @@ export function FeaturedProductSection() {
                 <div className="relative group p-4">
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary to-accent opacity-10 blur-2xl transition-opacity duration-500 group-hover:opacity-20"></div>
                     <Image
-                        src="https://placehold.co/600x400.png"
+                        src="https://loremflickr.com/600/400/cms,dashboard,web?lock=41"
                         data-ai-hint="cms dashboard"
                         width={600}
                         height={400}
