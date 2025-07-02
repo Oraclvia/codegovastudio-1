@@ -1,69 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import type { Metadata } from 'next';
 import Link from 'next/link';
-
-export const metadata: Metadata = {
-    title: 'Our Products - CodeGova',
-    description: 'Explore our collection of powerful scripts and CMS solutions.',
-};
-
-const products = [
-    {
-        title: "SwiftForm API",
-        description: "A backend script for processing form submissions with validation and email notifications.",
-        image: "https://placehold.co/600x400.png",
-        hint: "code api",
-        tags: ["Node.js", "API", "Forms"],
-        price: "$49",
-    },
-    {
-        title: "CodeGova CMS",
-        description: "A flexible, Git-based headless CMS for developers who love Markdown.",
-        image: "https://placehold.co/600x400.png",
-        hint: "content management",
-        tags: ["CMS", "Headless", "React"],
-        price: "$199",
-    },
-    {
-        title: "AuthKit",
-        description: "A complete user authentication solution with social logins and passwordless options.",
-        image: "https://placehold.co/600x400.png",
-        hint: "security shield",
-        tags: ["Auth", "Security", "SaaS"],
-        price: "$99",
-    },
-    {
-        title: "MediaPress",
-        description: "An image and video processing script for optimizing and transforming media on the fly.",
-        image: "https://placehold.co/600x400.png",
-        hint: "image gallery",
-        tags: ["Media", "Optimization", "Images"],
-        price: "$79",
-    },
-    {
-        title: "DataSync",
-        description: "A script to synchronize data between different databases and external APIs.",
-        image: "https://placehold.co/600x400.png",
-        hint: "database connection",
-        tags: ["Data", "API", "ETL"],
-        price: "$129",
-    },
-    {
-        title: "NotifyFlow",
-        description: "A robust notification service script for email, SMS, and push notifications.",
-        image: "https://placehold.co/600x400.png",
-        hint: "notification bell",
-        tags: ["Notifications", "Service", "Node.js"],
-        price: "$69",
-    },
-];
+import { useInView } from '@/hooks/use-in-view';
+import { cn } from '@/lib/utils';
+import { products } from '@/lib/products';
 
 export default function ProductsPage() {
+    const { ref, isInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
     return (
-        <div className="container mx-auto px-4 py-16 sm:py-24 lg:py-32">
+        <div 
+            ref={ref}
+            className={cn(
+                "container mx-auto px-4 py-16 sm:py-24 lg:py-32 transition-all duration-1000",
+                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            )}
+        >
             <div className="text-center mb-16">
                 <h1 className="font-headline text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                     Our Products
@@ -100,7 +56,7 @@ export default function ProductsPage() {
                         <CardFooter className="flex items-center justify-between">
                             <p className="text-2xl font-bold text-primary">{product.price}</p>
                             <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                                <Link href="#">Learn More</Link>
+                                <Link href={`/products/${product.slug}`}>Learn More</Link>
                             </Button>
                         </CardFooter>
                     </Card>

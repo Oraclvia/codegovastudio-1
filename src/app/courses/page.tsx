@@ -1,16 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import type { Metadata } from 'next';
 import { cn } from "@/lib/utils";
 import { Sparkles } from "lucide-react";
+import { useInView } from '@/hooks/use-in-view';
 
-export const metadata: Metadata = {
-    title: 'Courses - CodeGova',
-    description: 'Upskill with our expert-led tech courses. From Next.js to AI, master the tools of modern development.',
-};
 
 const courses = [
     {
@@ -148,10 +146,17 @@ const courses = [
 ];
 
 export default function CoursesPage() {
+    const { ref, isInView } = useInView({ triggerOnce: true, threshold: 0.1 });
     const whatsappBaseUrl = "https://wa.me/15551234567"; // Replace with your actual WhatsApp number
 
     return (
-        <div className="container mx-auto px-4 py-16 sm:py-24 lg:py-32">
+        <div 
+            ref={ref}
+            className={cn(
+                "container mx-auto px-4 py-16 sm:py-24 lg:py-32 transition-all duration-1000",
+                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            )}
+        >
             <div className="text-center mb-16">
                 <h1 className="font-headline text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                     Our Courses

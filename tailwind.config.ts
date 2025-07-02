@@ -101,6 +101,10 @@ export default {
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
         },
+        'fade-in-up': {
+          'from': { opacity: '0', transform: 'translateY(20px)' },
+          'to': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -108,6 +112,7 @@ export default {
         'text-shimmer': 'text-shimmer 2s linear infinite',
         'aurora': 'aurora 60s infinite',
         'pan-background': 'pan-background 15s ease-in-out infinite',
+        'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
       },
     },
   },
