@@ -1,4 +1,4 @@
-import { Zap, GitMerge, Users, ShieldCheck, Database, BellRing, Image as ImageIcon, Rocket } from 'lucide-react';
+import { Zap, GitMerge, Users, ShieldCheck, Database, BellRing, Image as ImageIcon, Rocket, Server } from 'lucide-react';
 
 export type Product = {
     slug: string;
