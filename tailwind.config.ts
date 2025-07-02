@@ -105,7 +105,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'text-shimmer': 'text-shimmer 5s linear infinite',
+        'text-shimmer': 'text-shimmer 2s linear infinite',
         'aurora': 'aurora 60s infinite',
         'pan-background': 'pan-background 15s ease-in-out infinite',
       },

@@ -1,20 +1,18 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // output: 'export', ← REMOVE this if using server features
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: true, // NextJS has a hard time parsing Typescript, but we have manual checks in place
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'placehold.co',
-        port: '',
         pathname: '/**',
       },
     ],
